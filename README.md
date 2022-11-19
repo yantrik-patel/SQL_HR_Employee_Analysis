@@ -1,6 +1,6 @@
 # HR_Employee_Analysis
 
-![cytonn-photography-n95VMLxqM2I-unsplash](https://user-images.githubusercontent.com/116425101/202741328-667f1a9d-ad17-45e2-9cb9-9678a94b4950.jpg)
+![7eK3](https://user-images.githubusercontent.com/116425101/202744716-f474360f-075e-492e-ac7a-85bd8dc553a3.gif)
 
 In this project we are analyzing the employee data and trying to find trend from it using SQL.  
 The dataset is downloaded from Kaggle. I have done initial data cleaning and compiled other tables data into one main_data table in Excel.
@@ -92,8 +92,51 @@ ORDER BY time_spend_company DESC
   
 ![image](https://user-images.githubusercontent.com/116425101/202736130-9d212981-3e8b-49a8-bc16-bbbee33ab491.png)
   
-  Looks like after 3 years employees leaves the organization.
+  Looks like after 3 years employees leaves the organization.  
+
+---  
+  
+## 6. Top 3 Employees drawing maximum salary and their status(Left or Present)?  
+  
+We need to use CTE and Windows Function(RANK) to get the results  
+  
+WITH rank_table AS  
+(  
+SELECT department, emp_id, salary_amount, status,  
+RANK() over (PARTITION BY department ORDER BY salary_amount DESC) as ranking  
+  
+FROM all_data  
+)
+
+SELECT *  
+FROM rank_table  
+WHERE ranking<= 3  
+  
+![image](https://user-images.githubusercontent.com/116425101/202857696-7016d100-04b6-4e0c-ba5e-17ae7f016e8b.png)
+  
+From the results we got, we can say that employees drawing highest salary are most likely to stay.
+  
+---  
+
+## 7. Departments having maximum number of promotion in descending order  
+  
+SELECT department, count(*) as total_promoted  
+FROM all_data  
+WHERE promotion_last_5years = 'promoted'  
+GROUP BY department  
+ORDER BY total_promoted DESC  
+
+![image](https://user-images.githubusercontent.com/116425101/202859553-cc0806cb-bea0-4c72-84e9-528b832d5b41.png)
+  
+IT Guys be like  
+
+![4HZ](https://user-images.githubusercontent.com/116425101/202860152-98132b9f-69c2-46f2-801c-383aad1c80c5.gif)
   
   
-![7eK3](https://user-images.githubusercontent.com/116425101/202744716-f474360f-075e-492e-ac7a-85bd8dc553a3.gif)
+
+
+
+
+  
+
 
