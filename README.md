@@ -172,6 +172,9 @@ As can be seen, promoted employees have higher chances of staying in organizatio
 ---  
 # Observations  
  The HR, Accounting and Techinical departments have above 25% attrition rate. Attrition is more in lower salary range. Most of the employees are more likely to leave after spending 3 years at the organization. And they are mostly not promoted. Our organization can focus on these factors while designing the solutions to reduce the attrition.  
+ 
+---  
+# TABLEAU STORY 
   
 I have also uploaded data visualization of this analysis in the form of TABLEAU STORY.  
 Please check it out (https://public.tableau.com/app/profile/yantrik.patel/viz/HREmployeeAttritionAnalysis_16690163153140/Story1)  
